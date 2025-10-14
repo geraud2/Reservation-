@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "type": "concert",
+    "title": "David Guetta Live",
+    "artist": "David Guetta",
+    "date": "2025-11-15",
+    "time": "20:00",
+    "venue": "AccorHotels Arena",
+    "city": "Paris",
+    "image": "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "price": 45,
+    "categories": [
+      { "name": "Fosse", "price": 65 },
+      { "name": "Carré Or", "price": 85 },
+      { "name": "Gradin", "price": 45 }
+    ],
+    "description": "Soirée électro inoubliable avec le DJ n°1 mondial"
+  },
+  {
+    "id": 2,
+    "type": "match",
+    "title": "PSG vs OM",
+    "artist": "Ligue 1",
+    "date": "2025-11-22",
+    "time": "21:00",
+    "venue": "Parc des Princes",
+    "city": "Paris",
+    "image": "https://images.pexels.com/photos/274506/pexels-photo-274506.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "price": 80,
+    "categories": [
+      { "name": "Tribune Borelli", "price": 120 },
+      { "name": "Tribune Paris", "price": 95 },
+      { "name": "Tribune Auteuil", "price": 80 }
+    ],
+    "description": "Le Classico : le match le plus attendu de la saison"
+  },
+  {
+    "id": 3,
+    "type": "concert",
+    "title": "Aya Nakamura",
+    "artist": "Aya Nakamura",
+    "date": "2025-12-05",
+    "time": "19:30",
+    "venue": "Zénith de Paris",
+    "city": "Paris",
+    "image": "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "price": 35,
+    "categories": [
+      { "name": "Fosse", "price": 50 },
+      { "name": "Balcon", "price": 40 },
+      { "name": "Gradin", "price": 35 }
+    ],
+    "description": "Concert exceptionnel de la reine de l'afro-pop française"
+  },
+  {
+    "id": 4,
+    "type": "match",
+    "title": "OL vs Lyon",
+    "artist": "Ligue 1",
+    "date": "2025-12-10",
+    "time": "17:00",
+    "venue": "Groupama Stadium",
+    "city": "Lyon",
+    "image": "https://images.pexels.com/photos/47730/the-ball-stadion-football-the-pitch-47730.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "price": 55,
+    "categories": [
+      { "name": "Tribune Nord", "price": 75 },
+      { "name": "Tribune Est", "price": 65 },
+      { "name": "Tribune Ouest", "price": 55 }
+    ],
+    "description": "Derby intense au Groupama Stadium"
+  },
+  {
+    "id": 5,
+    "type": "concert",
+    "title": "Jul en Concert",
+    "artist": "Jul",
+    "date": "2025-12-20",
+    "time": "20:30",
+    "venue": "Orange Vélodrome",
+    "city": "Marseille",
+    "image": "https://images.pexels.com/photos/1190297/pexels-photo-1190297.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "price": 40,
+    "categories": [
+      { "name": "Fosse", "price": 55 },
+      { "name": "Carré Or", "price": 70 },
+      { "name": "Gradin", "price": 40 }
+    ],
+    "description": "Le roi du rap marseillais enflamme son stade"
+  },
+  {
+    "id": 6,
+    "type": "concert",
+    "title": "Coldplay World Tour",
+    "artist": "Coldplay",
+    "date": "2026-01-18",
+    "time": "20:00",
+    "venue": "Stade de France",
+    "city": "Paris",
+    "image": "https://images.pexels.com/photos/1047442/pexels-photo-1047442.jpeg?auto=compress&cs=tinysrgb&w=800",
+    "price": 70,
+    "categories": [
+      { "name": "Fosse", "price": 95 },
+      { "name": "Carré Or", "price": 120 },
+      { "name": "Gradin", "price": 70 }
+    ],
+    "description": "Show spectaculaire du groupe légendaire britannique"
+  }
+]
