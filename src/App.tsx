@@ -1,6 +1,6 @@
 // App.jsx
 import { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { BookingProvider } from './contexts/BookingContext';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
@@ -41,11 +41,12 @@ function PublicRoute({ children }: PublicRouteProps) {
 
 function AppContent() {
   const [showSplash, setShowSplash] = useState(true);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 5000);
+    }, 3000); // Réduit à 3s pour meilleure UX
 
     return () => clearTimeout(timer);
   }, []);
@@ -55,7 +56,7 @@ function AppContent() {
   }
 
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <Routes>
           {/* Routes publiques */}
@@ -116,10 +117,10 @@ function AppContent() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         
-        {/* CORRECTION : BottomNav directement avec vérification */}
-        {useAuth().isAuthenticated && <BottomNav />}
+        {/* CORRECTION : BottomNav seulement si authentifié */}
+        {isAuthenticated && <BottomNav />}
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
