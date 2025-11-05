@@ -1,42 +1,52 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
-interface Booking {
+// Interface CORRIGÉE
+export interface Booking {
   id: string;
   eventId: number;
   eventTitle: string;
   eventDate: string;
   eventVenue: string;
+  eventCity: string; // ← string au lieu de ReactNode
+  eventImage: string;
+  eventTime: string; // ← string au lieu de ReactNode
   category: string;
-  price: number;
+  price: number;     // ← number pour les calculs
+  ticketType: 'standard' | 'premium';
   userName: string;
   userEmail: string;
-  bookedAt: string;
+  userPhone: string;
+  paymentMethod: 'mtn' | 'moov' | 'visa' | 'mastercard';
+  hasAfterMovie: boolean;
+  chatEnabled: boolean;
+  bookingDate: string;
+  status: 'confirmed' | 'cancelled' | 'pending';
 }
 
 interface BookingContextType {
   bookings: Booking[];
-  addBooking: (booking: Omit<Booking, 'id' | 'bookedAt'>) => void;
+  addBooking: (booking: Booking) => void;
 }
 
 const BookingContext = createContext<BookingContextType | undefined>(undefined);
 
 export function BookingProvider({ children }: { children: React.ReactNode }) {
   const [bookings, setBookings] = useState<Booking[]>(() => {
-    const saved = localStorage.getItem('bookings');
-    return saved ? JSON.parse(saved) : [];
+    try {
+      const saved = localStorage.getItem('bookings');
+      return saved ? JSON.parse(saved) : [];
+    } catch (error) {
+      console.error("Failed to parse bookings from localStorage", error);
+      return [];
+    }
   });
 
   useEffect(() => {
     localStorage.setItem('bookings', JSON.stringify(bookings));
   }, [bookings]);
 
-  const addBooking = (booking: Omit<Booking, 'id' | 'bookedAt'>) => {
-    const newBooking: Booking = {
-      ...booking,
-      id: Math.random().toString(36).substr(2, 9),
-      bookedAt: new Date().toISOString(),
-    };
-    setBookings(prev => [...prev, newBooking]);
+  const addBooking = (booking: Booking) => {
+    setBookings(prev => [...prev, booking]);
   };
 
   return (

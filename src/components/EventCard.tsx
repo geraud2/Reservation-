@@ -9,7 +9,7 @@ interface EventCardProps {
   venue: string;
   city: string;
   image: string;
-  price: number;
+  price: string;
   type: string;
 }
 
@@ -24,7 +24,7 @@ export default function EventCard({ id, title, date, venue, city, image, price, 
         <div className="relative h-48 overflow-hidden">
           <img src={image} alt={title} className="w-full h-full object-cover" />
           <div className="absolute top-3 right-3 bg-violet-600 text-white px-3 py-1 rounded-full text-xs font-semibold uppercase">
-            {type === 'concert' ? '🎵 Concert' : '⚽ Match'}
+            {type === 'music' ? '🎵 Musique' : '⚽ Sport'}
           </div>
         </div>
         <div className="p-4">
@@ -40,7 +40,7 @@ export default function EventCard({ id, title, date, venue, city, image, price, 
             </div>
             <div className="flex items-center gap-2 text-violet-600 dark:text-violet-400 font-semibold">
               <Euro className="w-4 h-4" />
-              <span>À partir de {price}€</span>
+              <span>À partir de {price}</span>
             </div>
           </div>
         </div>
