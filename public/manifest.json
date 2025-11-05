@@ -1,7 +1,7 @@
 {
-  "name": "QuikNapp",
-  "short_name": "QuikNapp",
-  "description": "Choppe ta place en un clin d'œil - Concerts & Matchs",
+  "name": "GBADOU",
+  "short_name": "GBADOU",
+  "description": "Choppe ton evenement en un clin d'œil - Concerts & Matchs",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#1C1C1C",
