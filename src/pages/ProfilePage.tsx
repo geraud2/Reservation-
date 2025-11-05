@@ -411,7 +411,8 @@ export default function ProfilePage() {
                         eventVenue={booking.eventVenue}
                         category={booking.category}
                         userName={booking.userName}
-                        // status={booking.status}
+                      
+                        
                       />
                     </motion.div>
                   ))}
