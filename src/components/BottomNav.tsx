@@ -1,4 +1,4 @@
-import { Home, Calendar, User, MoreHorizontal } from 'lucide-react';
+import { Home, Calendar, User, MoreHorizontal, MapPin } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -10,6 +10,7 @@ export default function BottomNav() {
   const navItems = [
     { path: '/', icon: Home, label: 'Accueil' },
     { path: '/events', icon: Calendar, label: 'Événements' },
+    { path: '/features/explore-city', icon: MapPin, label: 'Relaxation' }, // Nouvel item
     { path: '/profile', icon: User, label: 'Profil' },
     { path: '/features', icon: MoreHorizontal, label: 'Plus' },
   ];
