@@ -10,7 +10,7 @@ export default function BottomNav() {
   const navItems = [
     { path: '/', icon: Home, label: 'Accueil' },
     { path: '/events', icon: Calendar, label: 'Événements' },
-    { path: '/features/explore-city', icon: MapPin, label: 'Relaxation' }, // Nouvel item
+    { path: '/features/explore-city', icon: MapPin, label: 'Détente' }, // Nouvel item
     { path: '/profile', icon: User, label: 'Profil' },
     { path: '/features', icon: MoreHorizontal, label: 'Plus' },
   ];
