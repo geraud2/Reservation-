@@ -1,122 +1,204 @@
-import { Users, Map, Ticket, Shield, Bell, ArrowLeft, Zap, Star, Video, MessageCircle, Gift, WifiOff } from 'lucide-react';
+import { Users, Map, Ticket, Shield, Bell, ArrowLeft, Zap, Star, Video, MessageCircle, Gift, WifiOff, CreditCard, Smartphone, Share2, Film, Wallet, Heart, Search, Navigation, Camera, Users2, Crown, MessageSquare, MapPin } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
 export default function FeaturesPage() {
   const navigate = useNavigate();
 
-  const features = [
+  // CATÉGORIES DE FONCTIONNALITÉS
+  const featureCategories = [
     {
-      icon: Ticket,
-      name: 'Réservation Instantanée',
-      title: 'Billetterie 100% Mobile',
-      description: 'Réserve tes places en 30 secondes chrono pour tous les événements au Bénin',
-      color: 'from-violet-600 to-fuchsia-600',
-      details: [
-        'Scan QR code en 1 clic',
-        'Paiement mobile Money intégré',
-        'Confirmation immédiate',
-        'Support tous opérateurs (MTN, Moov)'
+      title: "🎟️ Billetterie & Paiement",
+      description: "Réservation sécurisée et gestion des billets",
+      features: [
+        {
+          icon: Ticket,
+          name: 'Réservation Instantanée',
+          title: 'Billetterie 100% Mobile',
+          description: 'Réserve en 30 secondes chrono',
+          color: 'from-violet-600 to-fuchsia-600',
+          path: '/events',
+          details: ['Scan QR code', 'Paiement intégré', 'Confirmation immédiate']
+        },
+        {
+          icon: Shield,
+          name: 'Paiement CinetPay',
+          title: 'Paiement Sécurisé',
+          description: 'MTN, Moov, Visa, Mastercard',
+          color: 'from-green-500 to-emerald-500',
+          path: '/events',
+          details: ['Tous opérateurs', 'Sécurité bancaire', 'Transactions instantanées']
+        },
+        {
+          icon: Wallet,
+          name: 'Portefeuille Gbadou',
+          title: 'Gestion Financière',
+          description: 'Points fidélité et cashback',
+          color: 'from-amber-500 to-orange-500',
+          path: '/features/wallet',
+          details: ['Points de fidélité', 'Historique paiements', 'Cashback rewards']
+        },
+        {
+          icon: Gift,
+          name: 'Offrir un Billet',
+          title: 'Cadeaux entre Amis',
+          description: 'Transfert de billets facile',
+          color: 'from-pink-500 to-rose-500',
+          path: '/features/gift-ticket',
+          details: ['Transfert sécurisé', 'Notification ami','Acceptation instantanée']
+        }
       ]
     },
     {
-      icon: Shield,
-      name: 'Paiement CinetPay',
-      title: 'Paiement Sécurisé',
-      description: 'Paiement 100% sécurisé via CinetPay avec tous les moyens locaux',
-      color: 'from-green-500 to-emerald-500',
-      details: [
-        'MTN Mobile Money',
-        'Moov Money', 
-        'Cartes Visa/Mastercard',
-        'Sécurité bancaire certifiée'
+      title: "💬 Social & Communauté",
+      description: "Interagis avec la communauté Gbadou",
+      features: [
+        {
+          icon: MessageSquare,
+          name: 'Chat Événement',
+          title: 'Communauté en Direct',
+          description: 'Discute avec les participants',
+          color: 'from-blue-500 to-cyan-500',
+          path: '/features/chat',
+          details: ['Salons par événement', 'Partage photos', 'Rencontres']
+        },
+        {
+          icon: Video,
+          name: 'Gbadou Now',
+          title: 'Fil d\'Actualité',
+          description: 'Stories et lives en direct',
+          color: 'from-purple-500 to-indigo-500',
+          path: '/features/gbadou-now',
+          details: ['Stories éphémères', 'Lives événements', 'Photos partagées']
+        },
+        {
+          icon: Film,
+          name: 'AfterMovie',
+          title: 'Souvenirs Premium',
+          description: 'Vidéos souvenirs professionnelles',
+          color: 'from-red-500 to-pink-500',
+          path: '/features/aftermovie',
+          details: ['Montages pro', 'Livraison 48h', 'Partage réseaux']
+        },
+        {
+          icon: Users2,
+          name: 'Réservation Groupe',
+          title: 'Sorties entre Amis',
+          description: 'Organise tes sorties de groupe',
+          color: 'from-teal-500 to-green-500',
+          path: '/features/group-booking',
+          details: ['Création groupe', 'Paiement collectif', 'Places regroupées']
+        }
       ]
     },
     {
-      icon: Map,
-      name: 'Géolocalisation',
-      title: 'Carte Interactive Bénin',
-      description: 'Trouve les événements près de chez toi avec notre carte interactive',
-      color: 'from-blue-500 to-cyan-500',
-      details: [
-        'Carte SVG du Bénin',
-        'Événements par ville',
-        'Itinéraires optimisés',
-        'Alertes proximité'
+      title: "🌍 Découverte & Local",
+      description: "Explore les événements et lieux autour de toi",
+      features: [
+        {
+          icon: Map,
+          name: 'Géolocalisation',
+          title: 'Carte Interactive',
+          description: 'Événements près de chez toi',
+          color: 'from-green-600 to-emerald-600',
+          path: '/events',
+          details: ['Carte du Bénin', 'Itinéraires', 'Alertes proximité']
+        },
+        {
+          icon: Navigation,
+          name: 'Explorer Ma Ville',
+          title: 'Découverte Locale',
+          description: 'Lieux recommandés autour',
+          color: 'from-orange-500 to-amber-500',
+          path: '/features/explore-city',
+          details: ['Hôtels & restaurants', 'Bars & plages', 'Sites touristiques']
+        },
+        {
+          icon: Search,
+          name: 'Recherche Avancée',
+          title: 'Trouve Ton Événement',
+          description: 'Filtres intelligents',
+          color: 'from-gray-600 to-gray-700',
+          path: '/features/search',
+          details: ['Par ville/date/prix', 'Catégories multiples', 'Suggestions']
+        },
+        {
+          icon: Heart,
+          name: 'Favoris & Recommandations',
+          title: 'Contenu Personnalisé',
+          description: 'Selon tes préférences',
+          color: 'from-rose-500 to-red-500',
+          path: '/features/recommendations',
+          details: ['Événements similaires', 'Historique', 'Suggestions smart']
+        }
       ]
     },
     {
-      icon: MessageCircle,
-      name: 'Chat Événement',
-      title: 'Communauté en Direct',
-      description: 'Discute avec les autres participants avant, pendant et après l\'événement',
-      color: 'from-amber-500 to-orange-500',
-      details: [
-        'Salons par événement',
-        'Partage photos/vidéos',
-        'Rencontres participants',
-        'Animations modérateurs'
-      ]
-    },
-    {
-      icon: Video,
-      name: 'AfterMovie',
-      title: 'Souvenirs Premium',
-      description: 'Revis l\'événement avec nos aftermovies exclusifs et contenus bonus',
-      color: 'from-pink-500 to-rose-500',
-      details: [
-        'Montages professionnels',
-        'Photos haute qualité',
-        'Interviews artistes',
-        'Contenus inédits'
-      ]
-    },
-    {
-      icon: Gift,
-      name: 'Parrainage',
-      title: 'Deviens Ambassadeur',
-      description: 'Parraine tes amis et gagne des récompenses exclusives sur chaque réservation',
-      color: 'from-purple-500 to-indigo-500',
-      details: [
-        'Code parrainage personnel',
-        'Commission sur chaque vente',
-        'Badges exclusifs',
-        'Accès événements VIP'
-      ]
-    },
-    {
-      icon: WifiOff,
-      name: 'Mode Hors-Ligne',
-      title: 'Accès Sans Internet',
-      description: 'Tes billets accessibles même sans connexion Internet',
-      color: 'from-gray-600 to-gray-800',
-      details: [
-        'Billets téléchargés localement',
-        'QR code fonctionnel offline',
-        'Notifications cachetées',
-        'Synchronisation automatique'
-      ]
-    },
-    {
-      icon: Users,
-      name: 'Réservation Groupe',
-      title: 'Sorties entre Amis',
-      description: 'Organise tes sorties de groupe facilement avec le système de réservation groupe',
-      color: 'from-teal-500 to-green-500',
-      details: [
-        'Création groupe instantanée',
-        'Paiement collectif ou individuel',
-        'Places regroupées',
-        'Gestionnaire de groupe'
+      title: "⚡ Fonctionnalités Avancées",
+      description: "Optimise ton expérience Gbadou",
+      features: [
+        {
+          icon: WifiOff,
+          name: 'Mode Hors-Ligne',
+          title: 'Accès Sans Internet',
+          description: 'Billets toujours disponibles',
+          color: 'from-gray-600 to-gray-800',
+          path: '/features/offline',
+          details: ['Billets téléchargés', 'QR codes offline', 'Sync auto']
+        },
+        {
+          icon: Bell,
+          name: 'Notifications Intelligentes',
+          title: 'Ne Rate Rien',
+          description: 'Alertes personnalisées',
+          color: 'from-yellow-500 to-amber-500',
+          path: '/features/notifications',
+          details: ['Rappels événements', 'Alertes promo', 'Messages importants']
+        },
+        {
+          icon: Crown,
+          name: 'Programme Ambassadeur',
+          title: 'Deviens Ambassadeur',
+          description: 'Gagne des récompenses',
+          color: 'from-amber-600 to-orange-600',
+          path: '/features/ambassador',
+          details: ['Commission 15%', 'Billets offerts', 'Statut VIP']
+        },
+        {
+          icon: Camera,
+          name: 'Scan QR Code',
+          title: 'Validation Rapide',
+          description: 'Entrée facilitée',
+          color: 'from-blue-600 to-indigo-600',
+          path: '/features/qr-scanner',
+          details: ['Scan instantané', 'Validation offline', 'Historique scans']
+        }
       ]
     }
   ];
+
+  const handleFeatureClick = (path: string) => {
+    if (path.startsWith('/features/')) {
+      // Pour l'instant, redirige vers la page existante la plus proche
+      if (path.includes('wallet') || path.includes('gift') || path.includes('notification')) {
+        navigate('/profile');
+      } else if (path.includes('chat') || path.includes('gbadou-now') || path.includes('aftermovie')) {
+        navigate('/events');
+      } else if (path.includes('explore') || path.includes('search') || path.includes('recommendation')) {
+        navigate('/events');
+      } else {
+        navigate(path);
+      }
+    } else {
+      navigate(path);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-violet-50 to-fuchsia-50 dark:from-gray-900 dark:to-gray-800 pb-20">
       {/* Header */}
       <div className="sticky top-0 z-10 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-white/20 dark:border-gray-800">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-4">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center gap-4">
           <button
             onClick={() => navigate(-1)}
             className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors"
@@ -124,12 +206,12 @@ export default function FeaturesPage() {
             <ArrowLeft className="w-5 h-5 sm:w-6 sm:h-6 text-gray-900 dark:text-white" />
           </button>
           <h1 className="text-lg sm:text-xl font-black text-gray-900 dark:text-white tracking-tight">
-            Fonctionnalités GBADOU
+            Centre des Fonctionnalités
           </h1>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {/* Hero Section */}
         <motion.div
           initial={{ y: 20, opacity: 0 }}
@@ -140,79 +222,88 @@ export default function FeaturesPage() {
             <Zap className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
           </div>
           <h2 className="text-2xl sm:text-3xl font-black mb-3 sm:mb-4 text-gray-900 dark:text-white tracking-tight">
-            GBADOU, ta billetterie 100% Béninoise
+            Découvre GBADOU
           </h2>
           <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Découvre toutes les fonctionnalités conçues spécialement pour révolutionner ta façon de vivre les événements au Bénin
+            Explore toutes les fonctionnalités qui révolutionnent ta façon de vivre les événements au Bénin
           </p>
         </motion.div>
 
-        {/* Features Grid */}
-        <div className="grid gap-6 sm:gap-8">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.name}
+        {/* Categories Grid */}
+        <div className="space-y-12">
+          {featureCategories.map((category, categoryIndex) => (
+            <motion.section
+              key={category.title}
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ delay: index * 0.1 }}
-              className="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden border border-white/20 dark:border-gray-700/50"
+              transition={{ delay: categoryIndex * 0.1 }}
+              className="bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-lg border border-white/20 dark:border-gray-700/50 overflow-hidden"
             >
+              {/* Category Header */}
+              <div className="bg-gradient-to-r from-violet-50 to-fuchsia-50 dark:from-gray-700/50 dark:to-gray-800/50 px-6 sm:px-8 py-4 border-b border-white/20 dark:border-gray-600">
+                <h3 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white tracking-tight">
+                  {category.title}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base mt-1">
+                  {category.description}
+                </p>
+              </div>
+
+              {/* Features Grid */}
               <div className="p-6 sm:p-8">
-                <div className="flex flex-col lg:flex-row lg:items-start gap-6">
-                  {/* Icon & Header */}
-                  <div className="flex-shrink-0">
-                    <div className={`w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center shadow-lg`}>
-                      <feature.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-                    </div>
-                  </div>
-
-                  {/* Content */}
-                  <div className="flex-1">
-                    <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
-                      <div>
-                        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-violet-100 to-fuchsia-100 dark:from-violet-900/20 dark:to-fuchsia-900/20 px-3 py-1 rounded-full text-sm font-semibold text-violet-700 dark:text-violet-300 mb-2">
-                          <Star className="w-3 h-3 fill-violet-500 text-violet-500" />
-                          {feature.name}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {category.features.map((feature, featureIndex) => (
+                    <motion.button
+                      key={feature.name}
+                      initial={{ scale: 0.9, opacity: 0 }}
+                      animate={{ scale: 1, opacity: 1 }}
+                      transition={{ delay: (categoryIndex * 0.2) + (featureIndex * 0.1) }}
+                      onClick={() => handleFeatureClick(feature.path)}
+                      className="bg-gradient-to-br from-gray-50 to-white dark:from-gray-700/50 dark:to-gray-800/50 rounded-2xl p-6 text-left hover:shadow-lg transition-all duration-300 border border-gray-100 dark:border-gray-600/50 hover:border-violet-200 dark:hover:border-violet-600/30 group"
+                    >
+                      <div className="flex items-start gap-4">
+                        {/* Icon */}
+                        <div className={`w-12 h-12 bg-gradient-to-br ${feature.color} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300 flex-shrink-0`}>
+                          <feature.icon className="w-6 h-6 text-white" />
                         </div>
-                        <h3 className="text-xl sm:text-2xl font-black text-gray-900 dark:text-white mb-2 tracking-tight">
-                          {feature.title}
-                        </h3>
-                        <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg">
-                          {feature.description}
-                        </p>
+
+                        {/* Content */}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 mb-2">
+                            <div className="bg-gradient-to-r from-violet-100 to-fuchsia-100 dark:from-violet-900/20 dark:to-fuchsia-900/20 px-2 py-1 rounded-full text-xs font-semibold text-violet-700 dark:text-violet-300">
+                              {feature.name}
+                            </div>
+                          </div>
+                          
+                          <h4 className="font-black text-gray-900 dark:text-white text-lg mb-1 tracking-tight group-hover:text-violet-600 dark:group-hover:text-violet-400 transition-colors">
+                            {feature.title}
+                          </h4>
+                          
+                          <p className="text-gray-600 dark:text-gray-300 text-sm mb-3">
+                            {feature.description}
+                          </p>
+
+                          {/* Features List */}
+                          <div className="space-y-1">
+                            {feature.details.map((detail, detailIndex) => (
+                              <div key={detailIndex} className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-xs">
+                                <div className="w-1.5 h-1.5 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full flex-shrink-0"></div>
+                                <span>{detail}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+
+                        {/* Arrow */}
+                        <div className="text-gray-300 group-hover:text-violet-500 transition-colors flex-shrink-0">
+                          <ArrowLeft className="w-4 h-4 rotate-180" />
+                        </div>
                       </div>
-                    </div>
-
-                    {/* Features List */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {feature.details.map((detail, detailIndex) => (
-                        <div key={detailIndex} className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-                          <div className="w-2 h-2 bg-gradient-to-r from-violet-500 to-fuchsia-500 rounded-full flex-shrink-0"></div>
-                          <span className="text-sm sm:text-base">{detail}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                    </motion.button>
+                  ))}
                 </div>
               </div>
-
-              {/* Feature-specific CTA */}
-              <div className="bg-gradient-to-r from-violet-50 to-fuchsia-50 dark:from-gray-700/50 dark:to-gray-800/50 px-6 sm:px-8 py-4 border-t border-white/20 dark:border-gray-600">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
-                    Prêt à utiliser {feature.name} ?
-                  </p>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className={`bg-gradient-to-r ${feature.color} text-white px-6 py-2 rounded-full font-black text-sm hover:shadow-lg transition-all tracking-tight`}
-                    onClick={() => navigate('/events')}
-                  >
-                    Essayer {feature.name.split(' ')[0]}
-                  </motion.button>
-                </div>
-              </div>
-            </motion.div>
+            </motion.section>
           ))}
         </div>
 
@@ -221,13 +312,13 @@ export default function FeaturesPage() {
           initial={{ y: 20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="mt-8 sm:mt-12 bg-gradient-to-br from-violet-600 to-fuchsia-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center text-white"
+          className="mt-12 bg-gradient-to-br from-violet-600 to-fuchsia-600 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-center text-white"
         >
           <h3 className="text-xl sm:text-2xl font-black mb-3 tracking-tight">
-            Prêt à vivre l'expérience GBADOU ?
+            Prêt à tout explorer ?
           </h3>
           <p className="text-white/90 mb-6 text-sm sm:text-base">
-            Rejoins la communauté qui révolutionne la billetterie événementielle au Bénin
+            Rejoins la communauté et découvre tous les avantages GBADOU
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <motion.button
@@ -236,15 +327,15 @@ export default function FeaturesPage() {
               className="bg-white text-violet-600 px-6 sm:px-8 py-3 rounded-full font-black hover:bg-gray-100 transition-all tracking-tight"
               onClick={() => navigate('/events')}
             >
-              Voir les Événements
+              Explorer les Événements
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="border-2 border-white text-white px-6 sm:px-8 py-3 rounded-full font-black hover:bg-white/10 transition-all tracking-tight"
-              onClick={() => navigate('/download')}
+              onClick={() => navigate('/profile')}
             >
-              Télécharger l'App
+              Voir Mon Profil
             </motion.button>
           </div>
         </motion.div>
