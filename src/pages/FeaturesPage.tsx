@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export default function FeaturesPage() {
   const navigate = useNavigate();
 
-  // CATÉGORIES DE FONCTIONNALITÉS
+  // CATÉGORIES DE FONCTIONNALITÉS - AVEC BONNES ROUTES
   const featureCategories = [
     {
       title: "🎟️ Billetterie & Paiement",
@@ -35,7 +35,7 @@ export default function FeaturesPage() {
           title: 'Gestion Financière',
           description: 'Points fidélité et cashback',
           color: 'from-amber-500 to-orange-500',
-          path: '/features/wallet',
+          path: '/features/wallet', // ✅ CORRIGÉ
           details: ['Points de fidélité', 'Historique paiements', 'Cashback rewards']
         },
         {
@@ -44,8 +44,8 @@ export default function FeaturesPage() {
           title: 'Cadeaux entre Amis',
           description: 'Transfert de billets facile',
           color: 'from-pink-500 to-rose-500',
-          path: '/features/gift-ticket',
-          details: ['Transfert sécurisé', 'Notification ami','Acceptation instantanée']
+          path: '/features/gift-ticket', // ✅ CORRIGÉ
+          details: ['Transfert sécurisé', 'Notification ami', 'Acceptation instantanée']
         }
       ]
     },
@@ -59,7 +59,7 @@ export default function FeaturesPage() {
           title: 'Communauté en Direct',
           description: 'Discute avec les participants',
           color: 'from-blue-500 to-cyan-500',
-          path: '/features/chat',
+          path: '/features/chat', // ✅ CORRIGÉ
           details: ['Salons par événement', 'Partage photos', 'Rencontres']
         },
         {
@@ -68,7 +68,7 @@ export default function FeaturesPage() {
           title: 'Fil d\'Actualité',
           description: 'Stories et lives en direct',
           color: 'from-purple-500 to-indigo-500',
-          path: '/features/gbadou-now',
+          path: '/features/gbadou-now', // ✅ CORRIGÉ
           details: ['Stories éphémères', 'Lives événements', 'Photos partagées']
         },
         {
@@ -77,7 +77,7 @@ export default function FeaturesPage() {
           title: 'Souvenirs Premium',
           description: 'Vidéos souvenirs professionnelles',
           color: 'from-red-500 to-pink-500',
-          path: '/features/aftermovie',
+          path: '/features/aftermovie', // ✅ CORRIGÉ
           details: ['Montages pro', 'Livraison 48h', 'Partage réseaux']
         },
         {
@@ -86,7 +86,7 @@ export default function FeaturesPage() {
           title: 'Sorties entre Amis',
           description: 'Organise tes sorties de groupe',
           color: 'from-teal-500 to-green-500',
-          path: '/features/group-booking',
+          path: '/features/group-booking', // ✅ CORRIGÉ
           details: ['Création groupe', 'Paiement collectif', 'Places regroupées']
         }
       ]
@@ -110,7 +110,7 @@ export default function FeaturesPage() {
           title: 'Découverte Locale',
           description: 'Lieux recommandés autour',
           color: 'from-orange-500 to-amber-500',
-          path: '/features/explore-city',
+          path: '/features/explore-city', // ✅ CORRIGÉ
           details: ['Hôtels & restaurants', 'Bars & plages', 'Sites touristiques']
         },
         {
@@ -119,7 +119,7 @@ export default function FeaturesPage() {
           title: 'Trouve Ton Événement',
           description: 'Filtres intelligents',
           color: 'from-gray-600 to-gray-700',
-          path: '/features/search',
+          path: '/features/search', // ✅ CORRIGÉ
           details: ['Par ville/date/prix', 'Catégories multiples', 'Suggestions']
         },
         {
@@ -128,7 +128,7 @@ export default function FeaturesPage() {
           title: 'Contenu Personnalisé',
           description: 'Selon tes préférences',
           color: 'from-rose-500 to-red-500',
-          path: '/features/recommendations',
+          path: '/features/recommendations', // ✅ CORRIGÉ
           details: ['Événements similaires', 'Historique', 'Suggestions smart']
         }
       ]
@@ -143,7 +143,7 @@ export default function FeaturesPage() {
           title: 'Accès Sans Internet',
           description: 'Billets toujours disponibles',
           color: 'from-gray-600 to-gray-800',
-          path: '/features/offline',
+          path: '/features/offline', // ✅ CORRIGÉ
           details: ['Billets téléchargés', 'QR codes offline', 'Sync auto']
         },
         {
@@ -152,7 +152,7 @@ export default function FeaturesPage() {
           title: 'Ne Rate Rien',
           description: 'Alertes personnalisées',
           color: 'from-yellow-500 to-amber-500',
-          path: '/features/notifications',
+          path: '/features/notifications', // ✅ CORRIGÉ
           details: ['Rappels événements', 'Alertes promo', 'Messages importants']
         },
         {
@@ -170,7 +170,7 @@ export default function FeaturesPage() {
           title: 'Validation Rapide',
           description: 'Entrée facilitée',
           color: 'from-blue-600 to-indigo-600',
-          path: '/features/qr-scanner',
+          path: '/features/qr-scanner', // ✅ CORRIGÉ
           details: ['Scan instantané', 'Validation offline', 'Historique scans']
         }
       ]
@@ -178,20 +178,8 @@ export default function FeaturesPage() {
   ];
 
   const handleFeatureClick = (path: string) => {
-    if (path.startsWith('/features/')) {
-      // Pour l'instant, redirige vers la page existante la plus proche
-      if (path.includes('wallet') || path.includes('gift') || path.includes('notification')) {
-        navigate('/profile');
-      } else if (path.includes('chat') || path.includes('gbadou-now') || path.includes('aftermovie')) {
-        navigate('/events');
-      } else if (path.includes('explore') || path.includes('search') || path.includes('recommendation')) {
-        navigate('/events');
-      } else {
-        navigate(path);
-      }
-    } else {
-      navigate(path);
-    }
+    // Maintenant toutes les routes features existent !
+    navigate(path);
   };
 
   return (

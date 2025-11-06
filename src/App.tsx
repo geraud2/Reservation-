@@ -17,6 +17,20 @@ import DownloadPage from './pages/DownloadPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
 
+// NOUVELLES PAGES FEATURES
+import WalletPage from './pages/WalletPage';
+import GiftTicketPage from './pages/GiftTicketPage';
+import NotificationsPage from './pages/NotificationsPage';
+import GbadouNowPage from './pages/GbadouNowPage'; // Corrected import path
+import ChatPage from './pages/ChatPage';
+import AfterMoviePage from './pages/AfterMoviePage';
+import GroupBookingPage from './pages/GroupBookingPage';
+import ExploreCityPage from './pages/ExploreCityPage';
+import SearchPage from './pages/SearchPage';
+import RecommendationsPage from './pages/RecommendationsPage';
+import OfflinePage from './pages/OfflinePage';
+import QRScannerPage from './pages/QRScannerPage';
+
 // CORRECTION : Ajout de l'import pour children
 import React from 'react';
 
@@ -71,7 +85,7 @@ function AppContent() {
             </PublicRoute>
           } />
           
-          {/* Routes protégées */}
+          {/* Routes protégées principales */}
           <Route path="/" element={
             <ProtectedRoute>
               <HomePage />
@@ -110,6 +124,68 @@ function AppContent() {
           <Route path="/download" element={
             <ProtectedRoute>
               <DownloadPage />
+            </ProtectedRoute>
+          } />
+
+          {/* NOUVELLES ROUTES FEATURES */}
+          <Route path="/features/wallet" element={
+            <ProtectedRoute>
+              <WalletPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/features/gift-ticket" element={
+            <ProtectedRoute>
+              <GiftTicketPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/features/notifications" element={
+            <ProtectedRoute>
+              <NotificationsPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/features/gbadou-now" element={
+            <ProtectedRoute>
+              <GbadouNowPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/features/chat" element={
+            <ProtectedRoute>
+              <ChatPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/features/aftermovie" element={
+            <ProtectedRoute>
+              <AfterMoviePage />
+            </ProtectedRoute>
+          } />
+          <Route path="/features/group-booking" element={
+            <ProtectedRoute>
+              <GroupBookingPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/features/explore-city" element={
+            <ProtectedRoute>
+              <ExploreCityPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/features/search" element={
+            <ProtectedRoute>
+              <SearchPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/features/recommendations" element={
+            <ProtectedRoute>
+              <RecommendationsPage />
+            </ProtectedRoute>
+          } />
+          <Route path="/features/offline" element={
+            <ProtectedRoute>
+              <OfflinePage />
+            </ProtectedRoute>
+          } />
+          <Route path="/features/qr-scanner" element={
+            <ProtectedRoute>
+              <QRScannerPage />
             </ProtectedRoute>
           } />
 
