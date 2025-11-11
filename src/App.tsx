@@ -21,7 +21,7 @@ import Register from './pages/Register';
 import WalletPage from './pages/WalletPage';
 import GiftTicketPage from './pages/GiftTicketPage';
 import NotificationsPage from './pages/NotificationsPage';
-import GbadouNowPage from './pages/GbadouNowPage'; // Corrected import path
+import GbadouNowPage from './pages/GbadouNowPage';
 import ChatPage from './pages/ChatPage';
 import AfterMoviePage from './pages/AfterMoviePage';
 import GroupBookingPage from './pages/GroupBookingPage';
@@ -30,6 +30,16 @@ import SearchPage from './pages/SearchPage';
 import RecommendationsPage from './pages/RecommendationsPage';
 import OfflinePage from './pages/OfflinePage';
 import QRScannerPage from './pages/QRScannerPage';
+
+// ✅ IMPORT DES NOUVELLES PAGES WEB
+import AdminSplash from './pages/AdminSplash';
+import PartnerSplash from './pages/PartnerSplash';
+import AdminLogin from './pages/AdminLogin';
+import PartnerLogin from './pages/PartnerLogin';
+import AdminRegister from './pages/AdminRegister';
+import PartnerRegister from './pages/PartnerRegister';
+import PartnerPortal from './pages/PartnerPortal';
+import AdminDashboard from './pages/AdminDashboard';
 
 // CORRECTION : Ajout de l'import pour children
 import React from 'react';
@@ -53,6 +63,13 @@ function PublicRoute({ children }: PublicRouteProps) {
   return !isAuthenticated ? children : <Navigate to="/" replace />;
 }
 
+// ✅ FONCTION POUR LES ROUTES WEB (séparées de l'app mobile)
+function WebRoute({ children }: ProtectedRouteProps) {
+  // Pour les pages web, on peut avoir une logique d'auth différente
+  // Pour l'instant, on laisse accessible sans auth pour le développement
+  return children;
+}
+
 function AppContent() {
   const [showSplash, setShowSplash] = useState(true);
   const { isAuthenticated } = useAuth();
@@ -60,7 +77,7 @@ function AppContent() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 3000); // Réduit à 3s pour meilleure UX
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, []);
@@ -73,7 +90,9 @@ function AppContent() {
     <HashRouter>
       <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
         <Routes>
-          {/* Routes publiques */}
+          {/* ==================== */}
+          {/* ROUTES PUBLIQUES MOBILE */}
+          {/* ==================== */}
           <Route path="/login" element={
             <PublicRoute>
               <Login />
@@ -84,8 +103,35 @@ function AppContent() {
               <Register />
             </PublicRoute>
           } />
+
+          {/* ==================== */}
+          {/* ROUTES WEB - ADMIN & PARTNER */}
+          {/* ==================== */}
+          {/* Splash Screens */}
+          <Route path="/admin-splash" element={<AdminSplash />} />
+          <Route path="/partner-splash" element={<PartnerSplash />} />
           
-          {/* Routes protégées principales */}
+          {/* Authentication Web */}
+          <Route path="/admin-login" element={<AdminLogin />} />
+          <Route path="/partner-login" element={<PartnerLogin />} />
+          <Route path="/admin-register" element={<AdminRegister />} />
+          <Route path="/partner-register" element={<PartnerRegister />} />
+          
+          {/* Applications Web Principales */}
+          <Route path="/partner/*" element={
+            <WebRoute>
+              <PartnerPortal />
+            </WebRoute>
+          } />
+          <Route path="/admin/*" element={
+            <WebRoute>
+              <AdminDashboard />
+            </WebRoute>
+          } />
+          
+          {/* ==================== */}
+          {/* ROUTES PROTÉGÉES MOBILE */}
+          {/* ==================== */}
           <Route path="/" element={
             <ProtectedRoute>
               <HomePage />
@@ -127,7 +173,9 @@ function AppContent() {
             </ProtectedRoute>
           } />
 
-          {/* NOUVELLES ROUTES FEATURES */}
+          {/* ==================== */}
+          {/* ROUTES FEATURES MOBILE */}
+          {/* ==================== */}
           <Route path="/features/wallet" element={
             <ProtectedRoute>
               <WalletPage />
@@ -189,12 +237,22 @@ function AppContent() {
             </ProtectedRoute>
           } />
 
-          {/* Redirection par défaut */}
+          {/* ==================== */}
+          {/* REDIRECTIONS */}
+          {/* ==================== */}
+          {/* Redirection vers l'app mobile par défaut */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
         
-        {/* CORRECTION : BottomNav seulement si authentifié */}
-        {isAuthenticated && <BottomNav />}
+        {/* ==================== */}
+        {/* BOTTOM NAV - UNIQUEMENT POUR MOBILE */}
+        {/* ==================== */}
+        {isAuthenticated && 
+         !window.location.hash.includes('/partner') && 
+         !window.location.hash.includes('/admin') && 
+         !window.location.hash.includes('/admin-') && 
+         !window.location.hash.includes('/partner-') && 
+         <BottomNav />}
       </div>
     </HashRouter>
   );
